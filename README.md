@@ -22,8 +22,8 @@ publicly available any time soon.
 npm install all-the-packages --save
 ```
 
-When you `npm install` this package, a `postinstall` script downloads
-the registry metadata JSON file, which is about 400 MB.
+When you install this package, a `postinstall` script downloads
+the npm registry metadata to a local JSON file, which is about about 400 MB.
 
 To refresh the module once you've already installed it, just reinstall:
 
