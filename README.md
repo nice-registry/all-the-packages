@@ -1,6 +1,6 @@
 # all-the-packages
 
-All the npm registry metadata as an offline event stream. Updated hourly.
+All the npm registry metadata as an offline event stream.
 
 ## Why?
 
@@ -22,13 +22,18 @@ node module with a simple streaming interface.
 npm install all-the-packages --save
 ```
 
-This package contains a compressed tarball of the registry metadata, which is
-about 88 MB. When you `npm install` it, a `postinstall` script is run which
-extracts the tarball into a 400 MB JSON file.
+When you `npm install` this package, a `postinstall` script downloads
+the registry metadata JSON file, which is about 400 MB.
+
+To refresh the module once you've already installed it, just reinstall:
+
+```sh
+npm rm all-the-packages && npm i all-the-packages
+```
 
 ## Usage
 
-This package is a simple event emitter that emits two events:
+This package provides a simple event emitter that emits two events:
 `package` and `end`.
 
 ```js

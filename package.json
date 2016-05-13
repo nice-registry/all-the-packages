@@ -1,15 +1,11 @@
 {
   "name": "all-the-packages",
   "version": "1.0.0",
-  "description": "All the npm registry metadata as an offline event stream. Updated hourly.",
+  "description": "All the npm registry metadata as an offline event stream.",
   "main": "index.js",
   "scripts": {
-    "postinstall": "npm run unpack",
+    "postinstall": "npm run download",
     "download": "curl https://skimdb.npmjs.com/registry/_design/scratch/_view/byField -o skimdb.json",
-    "pack": "tar cfzv skimdb.json.tgz skimdb.json",
-    "unpack": "tar xfzv skimdb.json.tgz",
-    "build": "npm run download",
-    "release": "scripts/release",
     "test": "tape test/**/*.js | tap-spec"
   },
   "repository": "https://github.com/zeke/all-the-packages",
