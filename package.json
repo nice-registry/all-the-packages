@@ -1,0 +1,43 @@
+{
+  "name": "all-the-packages",
+  "version": "1.0.0",
+  "description": "All the npm registry metadata as an offline event stream. Updated hourly.",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "npm run unpack",
+    "download": "curl https://skimdb.npmjs.com/registry/_design/scratch/_view/byField -o skimdb.json",
+    "pack": "tar cfzv skimdb.json.tgz skimdb.json",
+    "unpack": "tar xfzv skimdb.json.tgz",
+    "build": "npm run download",
+    "release": "scripts/release",
+    "test": "tape test/**/*.js | tap-spec"
+  },
+  "repository": "https://github.com/zeke/all-the-packages",
+  "keywords": [
+    "npm",
+    "registry",
+    "metadata",
+    "JSON",
+    "packages",
+    "names",
+    "list",
+    "words",
+    "filter",
+    "search",
+    "offline"
+  ],
+  "author": "zeke",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zeke/all-the-packages/issues"
+  },
+  "homepage": "https://github.com/zeke/all-the-packages#readme",
+  "dependencies": {
+    "JSONStream": "^1.0.6",
+    "event-stream": "^3.3.2"
+  },
+  "devDependencies": {
+    "tap-spec": "^4.1.1",
+    "tape": "^4.5.1"
+  }
+}
