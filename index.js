@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const fs = require('fs')
+const path = require('path')
 const JSONStream = require('JSONStream')
 const mapSync = require('event-stream').mapSync
 const EventEmitter = require('events')
@@ -11,7 +12,7 @@ util.inherits(Emitter, EventEmitter)
 
 const emitter = module.exports = new Emitter()
 
-fs.createReadStream('./skimdb.json')
+fs.createReadStream(path.join(__dirname, 'skimdb.json'))
   .pipe(JSONStream.parse('rows.*'))
   .pipe(mapSync(function (pkg) {
     emitter.emit('package', pkg.value)
