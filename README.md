@@ -55,6 +55,11 @@ interface is *RAM*. It would be nice to just `require` the module and have a
 giant registry object to work with, but a 400 MB JSON file is too big to fit in
 memory on most computers.
 
+## See Also
+
+- [package-stream](https://github.com/zeke/package-stream/): An endless stream of clean package data from the npm registry.
+- [nice-package](https://github.com/zeke/nice-package): Clean up messy package metadata from the npm registry
+
 ## Tests
 
 ```sh
@@ -69,7 +74,7 @@ npm test
 
 ## Dev Dependencies
 
-- [tap-spec](https://github.com/scottcorgan/tap-spec): Formatted TAP output like Mocha&#39;s spec reporter
+- [tap-spec](https://github.com/scottcorgan/tap-spec): Formatted TAP output like Mocha's spec reporter
 - [tape](https://github.com/substack/tape): tap-producing test harness for node and browsers
 
 
