@@ -48,6 +48,24 @@ registry
   })
 ```
 
+To get cleaner package data, use [nice-package](http://ghub.io/nice-package):
+
+```js
+const registry = require('all-the-packages')
+const NicePackage = require('nice-package')
+const coolPackages = []
+
+registry
+  .on('package', function (pkg) {
+    if (pkg.name.match('cool') || pkg.description.match('cool')) {
+      coolPackages.push(new NicePackage(pkg))
+    }
+  })
+  .on('end', function () {
+    // done
+  })
+```
+
 ## Why Streams?
 
 Streams are cool and all, but the main reason this module has a streaming
